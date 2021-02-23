@@ -33,6 +33,11 @@ myTheme.overrides = {
 			boxShadow: 'none',
 		},
 	},
+	MuiCard: {
+		root: {
+			boxShadow: '0px 2px 4px rgba(51, 99, 120, 0.1)',
+		},
+	},
 	MuiTypography: {
 		root: {
 			fontSize: '12px',
