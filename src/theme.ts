@@ -29,6 +29,9 @@ myTheme.overrides = {
 			borderRadius: '30px',
 			fontSize: '12px',
 		},
+		contained: {
+			boxShadow: 'none',
+		},
 	},
 	MuiTypography: {
 		root: {

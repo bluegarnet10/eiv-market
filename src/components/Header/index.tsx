@@ -3,6 +3,7 @@ import { AppBar, Box, Button, Link, makeStyles, Typography } from '@material-ui/
 
 const useStyles = makeStyles(theme => ({
 	root: {
+		position: 'relative',
 		padding: `${theme.spacing(1)}px ${theme.spacing(8)}px`,
 		display: 'flex',
 		flexDirection: 'row',
