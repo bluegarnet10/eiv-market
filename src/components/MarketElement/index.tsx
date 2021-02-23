@@ -3,6 +3,7 @@ import { Box, Card, Divider, Grid, makeStyles, Typography } from '@material-ui/c
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage, faStar, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
+import { MarketItem } from '../../types';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -58,6 +59,7 @@ const useStyles = makeStyles(theme => ({
 		alignItems: 'center',
 		'& p': {
 			fontWeight: 'bold',
+			textTransform: 'uppercase',
 		},
 	},
 	favorite: {
@@ -74,7 +76,11 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-const MarketItem = () => {
+interface MarketElementProps {
+	item: MarketItem;
+}
+
+const MarketElement: React.FC<MarketElementProps> = ({ item }) => {
 	const classes = useStyles();
 
 	return (
@@ -92,20 +98,20 @@ const MarketItem = () => {
 							<Grid item xs={6}>
 								<Box className={clsx(classes.item, classes.smallItem)}>
 									<FontAwesomeIcon icon={faThumbsUp} />
-									<Typography>$0.96</Typography>
+									<Typography>${item.priceUp.toLocaleString()}</Typography>
 								</Box>
 							</Grid>
 							<Grid item xs={6}>
 								<Box className={clsx(classes.item, classes.smallItem)}>
 									<FontAwesomeIcon icon={faThumbsDown} />
-									<Typography>$0.04</Typography>
+									<Typography>${item.priceDown.toLocaleString()}</Typography>
 								</Box>
 							</Grid>
 						</Grid>
 
 						<Box className={classes.item} style={{ marginTop: '8px' }}>
 							<Typography color="textSecondary">TOTAL VOLUME</Typography>
-							<Typography variant="h6">$5,664,950</Typography>
+							<Typography variant="h6">${item.totalVolume.toLocaleString()}</Typography>
 						</Box>
 					</Grid>
 				</Grid>
@@ -114,27 +120,26 @@ const MarketItem = () => {
 			<Divider />
 
 			<Box className={classes.infoList}>
-				<Typography className={classes.description}>
-					Will Donald Trump be President of the USA on March 31, 2021?
-				</Typography>
+				<Typography className={classes.description}>{item.description}</Typography>
 
 				<Box className={classes.addition}>
 					<Box style={{ display: 'flex' }}>
-						<Box className={classes.tag}>
-							<Typography>NEW</Typography>
-						</Box>
-						<Box className={classes.tag}>
-							<Typography>POLITICS</Typography>
-						</Box>
+						{item.tags.map((tag, idx) => (
+							<Box className={classes.tag} key={idx}>
+								<Typography>{tag}</Typography>
+							</Box>
+						))}
 					</Box>
 
-					<Box className={classes.favorite}>
-						<FontAwesomeIcon icon={faStar} />
-					</Box>
+					{item.favorite && (
+						<Box className={classes.favorite}>
+							<FontAwesomeIcon icon={faStar} />
+						</Box>
+					)}
 				</Box>
 			</Box>
 		</Card>
 	);
 };
 
-export default MarketItem;
+export default MarketElement;

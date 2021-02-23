@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, makeStyles, Typography } from '@material-ui/core';
-import MarketItem from '../../components/MarketItem';
+import MarketElement from '../../components/MarketElement';
+import { MOCK_MARKET_ITEMS } from '../../mocks/mockMarketItems';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -26,11 +27,9 @@ const MarketList = () => {
 			<Typography variant="h5">The hottest markets</Typography>
 
 			<Box className={classes.marketList}>
-				{Array(20)
-					.fill(0)
-					.map((_, idx) => (
-						<MarketItem key={idx} />
-					))}
+				{MOCK_MARKET_ITEMS.map((item, idx) => (
+					<MarketElement item={item} key={idx} />
+				))}
 			</Box>
 		</Box>
 	);
