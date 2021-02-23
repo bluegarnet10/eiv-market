@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import { Header } from './components/Header';
+import AppRouter from './modules/AppRouter';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -16,6 +17,7 @@ function App() {
 	return (
 		<main className={classes.root}>
 			<Header />
+			<AppRouter />
 		</main>
 	);
 }
