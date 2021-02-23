@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
 		paddingTop: theme.spacing(4),
 		display: 'grid',
 		gridGap: theme.spacing(2),
-		gridTemplateColumns: `repeat(auto-fit, minmax(300px, 1fr))`,
+		gridTemplateColumns: `repeat(auto-fit, minmax(330px, 1fr))`,
 	},
 }));
 

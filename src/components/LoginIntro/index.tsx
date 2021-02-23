@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box, Button, makeStyles, Typography } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -25,6 +27,7 @@ const useStyles = makeStyles(theme => ({
 		marginRight: theme.spacing(2),
 	},
 	image: {
+		width: 'auto !important',
 		height: 150,
 		marginRight: theme.spacing(4),
 	},
@@ -55,7 +58,7 @@ const LoginIntro = () => {
 				</Box>
 			</Box>
 
-			<img src="/images/placeholder.png" alt="" className={classes.image} />
+			<FontAwesomeIcon icon={faImage} className={classes.image} />
 		</Box>
 	);
 };

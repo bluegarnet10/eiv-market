@@ -35,11 +35,15 @@ myTheme.overrides = {
 	},
 	MuiCard: {
 		root: {
+			borderRadius: '10px',
 			boxShadow: '0px 2px 4px rgba(51, 99, 120, 0.1)',
 		},
 	},
 	MuiTypography: {
 		root: {
+			fontSize: '12px',
+		},
+		body1: {
 			fontSize: '12px',
 		},
 	},
